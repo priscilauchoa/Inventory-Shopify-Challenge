@@ -22,6 +22,19 @@ const createProduct = (req, res) => {
     res.send();
 };
 
+const allProducts = (req, res) => {
+    res.json(products);
+};
+
+const editProduct = (req, res) => {
+    console.log("request put done");
+    productToEdit = products.find((product) => product.id !== req.params.id);
+    productToEdit.name = req.body.name;
+    productToEdit.quantity = req.body.quantity;
+    res.send();
+};
+
+
 module.exports = {
     createProduct,
     allProducts,
