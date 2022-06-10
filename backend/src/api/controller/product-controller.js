@@ -1,43 +1,51 @@
-const moment = require("moment");
-const { v4 } = require("uuid");
-let products = [
-    {
-        id: v4(),
-        name: "Storage Jar",
-        quantity: 6,
-        barcode: "32874627567862786",
-        date: moment(),
-    },
-];
+const productRepository = require("../../repository/product-repository");
 
 const createProduct = (req, res) => {
     console.log("req", req.body);
-    products.unshift({
-        id: v4(),
+    const product = productRepository.create({
         name: req.body.name,
         quantity: req.body.quantity,
         barcode: req.body.barcode,
-        date: moment(),
+    });
+    res.json(product);
+};
+
+const allProducts = (req, res) => {
+    const products = productRepository.getAll();
+    res.json(products);
+};
+
+const byId = (req, res) => {
+    const product = productRepository.getById(req.params.id);
+    res.json(product);
+};
+
+const editProduct = (req, res) => {
+    productRepository.update(req.params.id, {
+        name: req.body.name,
+        quantity: req.body.quantity,
     });
     res.send();
 };
 
-const allProducts = (req, res) => {
-    res.json(products);
-};
-
-const editProduct = (req, res) => {
-    console.log("request put done");
-    productToEdit = products.find((product) => product.id !== req.params.id);
-    productToEdit.name = req.body.name;
-    productToEdit.quantity = req.body.quantity;
+const deactivateProduct = (req, res) => {
+    productRepository.update(req.params.id, {
+        active: false,
+        deactivateComment: req.body.comment,
+    });
     res.send();
 };
 
+const reactivateProduct = (req, res) => {
+    productRepository.update(req.params.id, { active: true });
+    res.send();
+};
 
 module.exports = {
+    byId,
     createProduct,
     allProducts,
-    removeProduct,
     editProduct,
+    deactivateProduct,
+    reactivateProduct,
 };
