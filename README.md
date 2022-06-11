@@ -12,15 +12,15 @@
 
 ### Get all products
 
--   GET `http://localhost:8080/api/product`
+-   GET `/api/product`
 
 ### Get product by id
 
--   GET `http://localhost:8080/api/product/:id`
+-   GET `/api/product/:id`
 
 ### Create a new product
 
--   POST `http://localhost:8080/api/product`
+-   POST `/api/product`
 
     `Content-Type: application/json`
 
@@ -34,7 +34,7 @@
 
 ### Update a product
 
--   PUT `http://localhost:8080/api/product/:id`
+-   PUT `/api/product/:id`
 
     `Content-Type: application/json`
 
@@ -47,7 +47,7 @@
 
 ### Deactivate (delete) a product
 
--   POST `http://localhost:8080/api/product/deactivate/:id`
+-   POST `/api/product/deactivate/:id`
 
     `Content-Type: application/json`
 
@@ -59,4 +59,4 @@
 
 ### Reactivate (undelete) a product
 
--   POST `http://localhost:8080/api/product/reactivate/:id`
+-   POST `/api/product/reactivate/:id`
