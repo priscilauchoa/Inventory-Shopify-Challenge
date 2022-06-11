@@ -3,8 +3,7 @@ const { v4 } = require("uuid");
 
 let products = [
     {
-        // id: v4(),
-        id: "UNIQUE",
+        id: v4(),
         name: "Storage Jar",
         quantity: 6,
         barcode: "32874627567862786",
@@ -30,7 +29,7 @@ const create = (product) => {
         ...product,
         id: v4(),
         date: moment(),
-        active: true
+        active: true,
     };
     products.unshift(entity);
     return entity;
