@@ -5,28 +5,58 @@
 -   In a terminal window, enter the directory **backend** and run: `npm install`;
 -   Start server with: `npm run dev`.
 
-    ## APi Routers:
+## APi Routers:
 
-    -   Get all product - Method: GET
+### Get all products
 
-             localhost:8080/api/product/
+-   GET [http://localhost:8080/api/product]
 
-    -   Get product by id - Method: GET
+### Get product by id
 
-             localhost:8080/api/product/:id
+-   GET [http://localhost:8080/api/product/][id]
 
-    -   Create a new request - Method: POST
+### Create a new product
 
-             localhost:8080/api/product/
+-   POST [http://localhost:8080/api/product]
 
-    -   Update a product - Method: PUT
+    `Content-Type: application/json`
 
-             localhost:8080/api/product/:id
+```javascript
 
-    -   Delete a product
+{
+    "name": "Table",
+    "quantity": 5,
+    "active": true,
+}
+```
 
-             localhost:8080/api/product/deactivate/
+### Update a product
 
-    -   Undelete a product
+-   PUT [http://localhost:8080/api/product/][id]
 
-             localhost:8080/api/product/reactivate/
+    `Content-Type: application/json`
+
+```javascript
+{
+    "name": "TABLE",
+    "quantity": 5
+}
+
+```
+
+### Delete a product
+
+-   POST [http://localhost:8080/api/product/deactivate/][id]
+
+    `Content-Type: application/json`
+
+```javascript
+{
+    "comment": "This product is duplicate"
+}
+
+```
+
+### Undelete a product
+
+-   POST [http://localhost:8080/api/product/reactivate/][id]
