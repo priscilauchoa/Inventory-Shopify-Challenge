@@ -5,8 +5,8 @@
 
 ## To run the backend application
 
--   In a terminal window, enter the directory **backend** and run: `npm install`;
--   Start server with: `npm run dev`.
+-   In a terminal window run: `npm install`;
+-   Start server with: `npm start`.
 
 ## API Routes:
 
